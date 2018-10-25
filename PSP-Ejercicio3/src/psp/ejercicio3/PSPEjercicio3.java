@@ -24,12 +24,16 @@ public class PSPEjercicio3 {
 }
 
 class Hilo1 extends Thread {
-
+    
+    Thread hilo;    
+    
     public Hilo1(int contador) {
         contador = contador + 1;
         System.out.println(getName() + " empezó");
+        
         if (contador < 5) {
-            new Hilo1(contador).start();
+            hilo=new Hilo1(contador);
+            hilo.start();
         }
     }
 
@@ -46,7 +50,7 @@ class Hilo1 extends Thread {
         }
         if (!getName().equals("Thread-4")) {
             try {
-                join();
+                hilo.join();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo1.class.getName()).log(Level.SEVERE, null, ex);
             }
