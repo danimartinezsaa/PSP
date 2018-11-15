@@ -21,36 +21,23 @@ public class Caja {
 
         if (retirada == true) {
             wait();
-            ingreso = true;
-            this.dinero = this.dinero + dinero;
-            System.out.println("Ingreso");
-            ingreso = false;
-            notify();
-
-        } else {
-            ingreso = true;
-            this.dinero = this.dinero + dinero;
-            System.out.println("Ingreso");
-            ingreso = false;
-            notify();
-
         }
+        ingreso = true;
+        this.dinero = this.dinero + dinero;
+        System.out.println("Ingreso");
+        ingreso = false;
+        notify();
+
     }
 
     public synchronized void retirada(int dinero) throws InterruptedException {
         if (ingreso == true) {
             wait();
-            retirada = true;
-            this.dinero = this.dinero - dinero;
-            System.out.println("Retirada");
-            retirada = false;
-            notify();
-        } else {
-            retirada = true;
-            this.dinero = this.dinero - dinero;
-            System.out.println("Retirada");
-            retirada = false;
-            notify();
         }
+        retirada = true;
+        this.dinero = this.dinero - dinero;
+        System.out.println("Retirada");
+        retirada = false;
+        notify();
     }
 }
