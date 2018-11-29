@@ -35,9 +35,10 @@ public class Control {
         //Si el animal se queda en la misma posición que el otro se vuelve a la posición en la que estaba
         if(this.posicion==posicion){
             avance=false;   //indicamos que ya no avanzamos
+            notify();
             return posicioni;   //Devolvemos posición anterior
         }
-            
+        notify();
         avance=false;   //indicamos que ya no avanzamos
         return posicion;//Devolvemos nueva posición
     }
@@ -68,10 +69,12 @@ public class Control {
         //Si el animal se queda en la misma posición que el otro se vuelve a la posición en la que estaba
         if(this.posicion==posicion){
             avance=false;       //indicamos que ya no avanzamos
+            notify();
             return posicioni;   //Devolvemos posición anterior
         }
             
         avance=false;       //indicamos que ya no avanzamos
+        notify();
         return posicion;    //Devolvemos nueva posición
     }
 }
