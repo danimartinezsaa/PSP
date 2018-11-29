@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 public class PSPEjercicio7 {
 
     public static void main(String[] args) {
+        //instanciamos el correo
         Correo correo = new Correo();
+        //creamos dos usuarios
         new Usuario1(correo).start();
         new Usuario2(correo).start();
     }
@@ -23,7 +25,8 @@ public class PSPEjercicio7 {
 }
 
 class Usuario1 extends Thread {
-
+    
+    //Creamos un objeto del monitor
     private Correo correo;
 
     public Usuario1(Correo correo) {
@@ -33,6 +36,7 @@ class Usuario1 extends Thread {
     @Override
     public void run() {
         try {
+            //Realizamos operaciones de escritura y lectura de mensajes
             correo.escribir("Hola");
             correo.leer();
             correo.escribir("Qué tal?");
@@ -46,7 +50,7 @@ class Usuario1 extends Thread {
 }
 
 class Usuario2 extends Thread {
-
+    //Creamos un objeto monitor
     private Correo correo;
 
     public Usuario2(Correo correo) {
@@ -56,6 +60,7 @@ class Usuario2 extends Thread {
     @Override
     public void run() {
         try {
+            //Enviamos y leemos mensajes
             correo.escribir("Hola");
             correo.leer();
             correo.leer();
