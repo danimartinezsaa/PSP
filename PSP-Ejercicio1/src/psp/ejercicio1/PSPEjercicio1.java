@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Programa con dos hilos en los que cada hilo saca diez mensajes por consola con un tiempo aleatorio
+ * entre ellos
  */
 package psp.ejercicio1;
 
@@ -22,7 +21,7 @@ public class PSPEjercicio1 {
         new Hilo2().start();
     }
 }
-
+//Hilo1
 class Hilo1 extends Thread {
 
     public Hilo1() {
@@ -31,17 +30,18 @@ class Hilo1 extends Thread {
 
     @Override
     public void run() {
+        //Bucle de 10 iteraciones
         for(int i=0;i<10;i++){
-            System.out.println(i+" Hilo1");
+            System.out.println(i+" Hilo1"); //Mensaje a mostrar
             try {
-                Thread.sleep((long) (Math.random()*3000)+1);
+                Thread.sleep((long) (Math.random()*3000)+1);    //Tiempo aleatorio entre mensaje
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo1.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 }
-
+//Hilo2
 class Hilo2 extends Thread {
 
     public Hilo2() {
@@ -51,9 +51,9 @@ class Hilo2 extends Thread {
     @Override
     public void run() {
         for(int i=0;i<10;i++){
-            System.out.println(i+" Hilo2");
+            System.out.println(i+" Hilo2"); //Mensaje a mostrar
             try {
-                Thread.sleep((long) (Math.random()*3000)+1);
+                Thread.sleep((long) (Math.random()*3000)+1);    //Tiempo aleatorio entre mensaje
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo2.class.getName()).log(Level.SEVERE, null, ex);
             }
