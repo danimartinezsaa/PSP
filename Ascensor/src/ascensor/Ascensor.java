@@ -18,7 +18,9 @@ public class Ascensor {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Monitor ascensor
         Controlador control=new Controlador();
+        //dos usuarios
         new Usuario1(control).start();
         new Usuario2(control).start();
         
@@ -27,6 +29,7 @@ public class Ascensor {
 }
 
 class Usuario1 extends Thread{
+    //Recibimos el controlador
     private Controlador control;
     public Usuario1(Controlador control) {
         this.control=control;
@@ -35,6 +38,7 @@ class Usuario1 extends Thread{
     @Override
     public void run(){
         try {
+            //Pedimos ir a las plantas 3 y 4
             System.out.println("Piso: "+control.getPiso());
             control.pedir(3);
             System.out.println("Piso: "+control.getPiso());
@@ -48,6 +52,7 @@ class Usuario1 extends Thread{
 }
 
 class Usuario2 extends Thread{
+    //Recibimos el controlador
     private Controlador control;
     public Usuario2(Controlador control) {
         this.control=control;
@@ -56,6 +61,7 @@ class Usuario2 extends Thread{
     @Override
     public void run(){
         try {
+            //Pedimos ir a las plantas 10 y 2
             System.out.println("Piso: "+control.getPiso());
             control.pedir(10);
             System.out.println("Piso: "+control.getPiso());
