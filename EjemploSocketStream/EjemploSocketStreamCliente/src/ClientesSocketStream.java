@@ -20,26 +20,19 @@ public class ClientesSocketStream {
 
 			System.out.println("Enviando mensaje");
                         
-			String mensaje="mensaje desde el cliente";
-			os.write(mensaje.getBytes());
+                        int[] numeros={1,2,3,4,1};
+                        
+                        for(int i=0;i<5;i++){
+                            os.write(numeros[i]);
+                            System.out.println("Enviado "+numeros[i]);
+                        }
+                        
+                        System.out.println("Números enviados");
 
+                        
 			byte[] recibido=new byte[50];
 			is.read(recibido);
-			System.out.println("Mensaje recibido: "+new String(recibido));
-                        
-                        mensaje="mensaje desde el cliente 2";
-			os.write(mensaje.getBytes());
-                        
-			is.read(recibido);
-			System.out.println("Mensaje recibido: "+new String(recibido));
-                        
-                        mensaje="mensaje desde el cliente 3";
-			os.write(mensaje.getBytes());
-
-			is.read(recibido);
-			System.out.println("Mensaje recibido: "+new String(recibido));
-
-			System.out.println("Cerrando el socket cliente");
+			System.out.println("Suma recibida= "+recibido[0]);
                         
 			clienteSocket.close();
 

@@ -4,6 +4,8 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.ServerSocket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ServidorSocketStream {
 	
@@ -27,24 +29,19 @@ public class ServidorSocketStream {
 			InputStream is=newSocket.getInputStream();
 			OutputStream os=newSocket.getOutputStream();
                         
-                        String enviado="mensaje desde el servidor";
-			os.write(enviado.getBytes());
-
-			byte[] recibido=new byte[50];
+                        Thread.sleep(500L);
+			byte[] recibido=new byte[5];
 			is.read(recibido);
-                        System.out.println("Mensaje recibido: "+new String(recibido));
                         
-                        enviado="mensaje desde el servidor 2";
-			os.write(enviado.getBytes());
+                        int suma=0;
+                        for(int i=0;i<5;i++){
+                            System.out.println("Recibido número "+recibido[i]);
+                            suma=recibido[i]+suma;
+                        }
                         
-			is.read(recibido);
-			System.out.println("Mensaje recibido: "+new String(recibido));
-                          
-                        enviado="mensaje desde el servidor 3";
-			os.write(enviado.getBytes());
+			os.write(suma);
                         
-                        is.read(recibido);
-			System.out.println("Mensaje recibido: "+new String(recibido));
+                        System.out.println("Suma enviada");
 
 			System.out.println("Cerrando el nuevo socket");
 
@@ -58,6 +55,8 @@ public class ServidorSocketStream {
 
                 }catch (IOException e) {
                     System.out.println("Error de conexión");
-                }
+                } catch (InterruptedException ex) {
+                Logger.getLogger(ServidorSocketStream.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 }
