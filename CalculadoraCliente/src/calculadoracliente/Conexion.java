@@ -65,7 +65,7 @@ public class Conexion {
             is.close();
             
         } catch (IOException ex) {
-            System.out.println("Error al recibir operación");
+            return "Error conexión";
         } finally {
             try {
                 //Cerramos el socket

@@ -8,6 +8,7 @@ package calculadoracliente;
 public class CalculadoraCliente {
 
     public static void main(String[] args) {
+        //Lanzamos la interfaz
         GUI ventana=new GUI();
         ventana.setVisible(true);
     }

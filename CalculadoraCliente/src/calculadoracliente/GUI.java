@@ -241,16 +241,18 @@ public class GUI extends javax.swing.JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "Primero debe introducir un número.");
         } else {
             numero = numero + " ^ ";
-            String resultado = Conexion.enviar(numero,Integer.parseInt(inports.getText()),indirs.getText());
+            try{
+                String resultado = Conexion.enviar(numero,Integer.parseInt(inports.getText()),indirs.getText());
+                visualizador.setText(resultado);
+            }catch(NumberFormatException ex){
+                visualizador.setText("Error conexión");
+            }
+            
             numero = "";
-            visualizador.setText(resultado);
             nuevo = true;
         }
     }//GEN-LAST:event_botonraizActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -397,9 +399,15 @@ public class GUI extends javax.swing.JFrame implements ActionListener {
             if (numero.equals("")) {
                 JOptionPane.showMessageDialog(null, "Primero debe introducir un número.");
             } else {
-                String resultado = Conexion.enviar(numero,Integer.parseInt(inports.getText()),indirs.getText());
+                try{
+                    String resultado = Conexion.enviar(numero,Integer.parseInt(inports.getText()),indirs.getText());
+                    visualizador.setText(resultado);
+                }catch(NumberFormatException ex){
+                    visualizador.setText("Error conexión");
+                }
+                
                 numero = "";
-                visualizador.setText(resultado);
+                
                 nuevo = true;
             }
         } else if (o == botonpunto) {
