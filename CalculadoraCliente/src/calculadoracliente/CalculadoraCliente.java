@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package calculadoracliente;
 
 /**
- *
+ * Cliente de una calculadora que recibe el resultado de un servidor.
  * @author dani_
  */
 public class CalculadoraCliente {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         GUI ventana=new GUI();
         ventana.setVisible(true);
